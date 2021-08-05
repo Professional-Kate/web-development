@@ -1,0 +1,108 @@
+:root {
+  font-size: 16px;
+  font-family: "Roboto", Arial;
+
+  /* variables in root so I can use them everywhere */
+  --primary-background-color: hsl(213, 24%, 20%);
+
+  --primary-text-color: #fff;
+  --highlight-text-color: hsl(176, 96%, 69%);
+}
+
+/* whole page style */
+* {
+  background: var(--primary-background-color);
+  color: var(--primary-text-color);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.top-bar-nav {
+  position: fixed;
+  display: flex;
+  width: 100%; /* whole screen */
+  height: 70px;
+}
+
+.top-bar-nav ul {
+  display: flex;
+  gap: 2em; /* space between the elements */
+  padding: 1.5em; /* moves the element away from the corner of the screen */
+  list-style: none;
+}
+
+.top-bar-nav a,
+.top-bar-nav span {
+  text-decoration: none;
+  font-style: italic;
+  font-size: 2rem;
+  outline: none; /* makes the on focus state look better */
+}
+
+.top-bar-nav a:hover,
+.top-bar-nav a:focus {
+  color: var(--highlight-text-color);
+  transition: all 300ms ease-out;
+  border-bottom: 3px solid var(--highlight-text-color);
+}
+
+.main-header {
+  padding-top: 1em; /* moves the header down a little */
+  font-size: 6rem;
+}
+
+.column-container {
+  display: flex;
+  gap: 3em;
+  flex-direction: column;
+  align-items: center;
+}
+
+.column-header {
+  color: var(--primary-background-color);
+  background: linear-gradient(
+    90deg,
+    #55cdfc 0%,
+    #f7a8b8,
+    #ffffff 50%,
+    #f7a8b8,
+    #55cdfc 100%
+  );
+  font-size: 2rem;
+  padding: 1em; /* makes some blank space around the header */
+  margin-bottom: 1em; /* puts some space between the header and the text */
+  text-align: left;
+}
+
+.column-content {
+  width: clamp(
+    45ch,
+    2rem,
+    75ch
+  ); /* makes sure the text is always nicely readable */
+  font-size: 1.75rem;
+  line-height: 2.5rem;
+}
+
+.column-content img {
+  width: 95%; /* most of the parent containers width */
+  height: auto; /* keeps aspect resolution */
+  padding-bottom: 0.75em; /* push the elements below the image down */
+}
+
+.footer {
+  display: flex;
+  height: 10vh; /* total height of the footer */
+  justify-content: center; /* makes the elements children appear in the middle of the footer */
+  align-items: center;
+  margin-top: 3em; /* adds some white space above the footer and below it */
+  border-top: 5px solid var(--highlight-text-color); /* nice dividing line */
+  font-size: 2rem;
+}
+
+.in-line-link {
+  text-decoration: none;
+  color: var(--highlight-text-color);
+  border-bottom: 1px solid var(--highlight-text-color);
+}
