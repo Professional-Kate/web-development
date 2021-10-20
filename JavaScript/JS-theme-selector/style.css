@@ -1,0 +1,45 @@
+:root {
+  font-size: 16px;
+
+  --main-background-color: hsl(201, 20%, 25%);
+  --main-text-color: #fff;
+
+  /* 
+  dark: 
+    background: hsl(201, 20%, 25%);
+    text: #fff;
+  white:
+    background: #fff;
+    text: hsl(201, 20%, 25%);
+    */
+}
+
+*,
+html {
+  background-color: var(--main-background-color);
+  color: var(--main-text-color);
+  transition: all 300ms ease-in;
+}
+
+.main-content * {
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.main-content h1 {
+  font-size: 10rem;
+}
+
+.main-content p {
+  font-size: 5rem;
+}
