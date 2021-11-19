@@ -1,0 +1,14 @@
+/* selecting the first div of the parent #world-wide-container */
+#world-wide-container div:nth-child(2) {
+  border-color: #ffd700 !important; /* need !important because bootstrap also uses it */
+}
+
+/* selecting the second div of the parent #world-wide-container */
+#world-wide-container div:nth-child(3) {
+  border-color: #c0c0c0 !important; /* need !important because bootstrap also uses it */
+}
+
+/* selecting the third div of the parent #world-wide-container */
+#world-wide-container div:nth-child(4) {
+  border-color: #cd7f32 !important; /* need !important because bootstrap also uses it */
+}
