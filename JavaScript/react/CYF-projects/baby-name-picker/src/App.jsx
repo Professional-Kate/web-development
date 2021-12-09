@@ -1,7 +1,13 @@
-import Testing from "./Testing.jsx";
+import Testing from "./Testing.js";
 
 const App = () => {
-  return <Testing />;
+  return (
+    <div>
+      <Testing />
+      <Testing />
+      <Testing />
+    </div>
+  );
 };
 
 // renders react
