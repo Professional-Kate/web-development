@@ -7,4 +7,19 @@
 
   /* normal font family for everything */
   font-family: var(--normal-font);
+  text-align: center;
+}
+
+header {
+  /* align center using flex */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+  background-color: hsl(0, 0%, 35%); /* nicer gray to distinguish the header */
+  color: white;
+}
+
+.main-header {
+  font-size: 2rem;
 }
