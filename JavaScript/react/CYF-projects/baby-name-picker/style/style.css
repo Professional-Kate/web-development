@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap");
+
+:root {
+  /* variables in the root */
+  --highlight-font: "Bebas Neue", Arial;
+  --normal-font: "Roboto", Arial;
+
+  /* normal font family for everything */
+  font-family: var(--normal-font);
+}
