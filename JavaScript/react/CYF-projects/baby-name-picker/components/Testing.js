@@ -1,9 +1,0 @@
-var Testing = function Testing() {
-  return React.createElement(
-    "h3",
-    null,
-    "Hello World!"
-  );
-};
-
-export default Testing;
