@@ -9,12 +9,8 @@ var DisplayNames = function DisplayNames(_ref) {
     React.createElement(
       "ul",
       null,
-      data.forEach(function (baby) {
-        return React.createElement(
-          "h2",
-          null,
-          "hello"
-        );
+      data.map(function (baby) {
+        return React.createElement(BabyName, { key: baby.id, baby: baby });
       })
     )
   );

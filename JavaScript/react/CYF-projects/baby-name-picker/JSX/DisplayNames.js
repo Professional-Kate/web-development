@@ -4,9 +4,9 @@ const DisplayNames = ({ data }) => {
   return (
     <div id="all-names">
       <ul>
-        {data.forEach(function (baby) {
-          return <h2>hello</h2>;
-        })}
+        {data.map((baby) => (
+          <BabyName key={baby.id} baby={baby} />
+        ))}
       </ul>
     </div>
   );

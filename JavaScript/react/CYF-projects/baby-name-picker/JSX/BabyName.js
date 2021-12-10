@@ -1,5 +1,5 @@
 const BabyName = ({ baby }) => {
-  return <li>{baby}</li>;
+  return <li id={baby.id + "-" + baby.name}>{baby.name}</li>;
 };
 
 export default BabyName;

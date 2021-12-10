@@ -3,8 +3,8 @@ var BabyName = function BabyName(_ref) {
 
   return React.createElement(
     "li",
-    null,
-    baby
+    { id: baby.id + "-" + baby.name },
+    baby.name
   );
 };
 
