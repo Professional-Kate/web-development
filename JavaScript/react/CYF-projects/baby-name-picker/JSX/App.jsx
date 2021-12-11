@@ -10,4 +10,4 @@ const App = () => {
 };
 
 // renders react
-ReactDOM.render(<App />, document.getElementById("main"));
+ReactDOM.render(<App />, document.getElementById("baby-names-container"));

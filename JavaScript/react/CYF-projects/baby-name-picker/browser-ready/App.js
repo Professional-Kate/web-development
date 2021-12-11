@@ -10,4 +10,4 @@ var App = function App() {
 };
 
 // renders react
-ReactDOM.render(React.createElement(App, null), document.getElementById("main"));
+ReactDOM.render(React.createElement(App, null), document.getElementById("baby-names-container"));
