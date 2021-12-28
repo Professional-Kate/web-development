@@ -1,48 +1,49 @@
 // 0.44 seconds
 const array = require("./array");
 
-// 0.828 seconds
+// 0.802 seconds
 const arrayFilter = function () {
-  const newArr = array.filter((element) => element * 2);
+  array.filter((element) => element * 2);
 };
 
-// 0.574 seconds
+// 0.561 seconds
 const arrayForEach = function () {
-  const newArr = array.forEach((element) => element * 2);
+  array.forEach((element) => element * 2);
 };
 
-// 0.542 seconds
+// 0.568 seconds
 const arrayMap = function () {
-  const newArr = array.map((element) => element * 2);
+  array.map((element) => element * 2);
 };
 
-// 0.858 seconds
+// 0.444 seconds
 const arrayFor = function () {
-  const newArray = [];
-  for (let i = 0; i <= array.length; i++) {
-    newArray.push(array[i] * 2);
-  }
+  for (let i = 0; i <= array.length; i++) {}
 };
 
-// 2.91 seconds
+// 2.658 seconds
 const arrayForIn = function () {
-  const newArray = [];
   for (let element in array) {
-    newArray.push(element);
   }
 };
 
-// 0.833 seconds
+// 0.537 seconds
 const arrayForOf = function () {
-  const newArray = [];
   for (let element of array) {
-    newArray.push(element);
   }
 };
 
-// arrayMap();
+// 0.441 seconds
+const arrayWhile = function () {
+  let length = array.length;
+
+  while (length--) {}
+};
+
+arrayMap();
 // arrayForEach();
 // arrayFilter();
 // arrayFor();
 // arrayForIn();
 // arrayForOf();
+// arrayWhile();
