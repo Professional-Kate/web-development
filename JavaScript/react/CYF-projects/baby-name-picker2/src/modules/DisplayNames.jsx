@@ -1,48 +1,45 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import BabyName from "./BabyNames";
-import BabySearch from "./BabySearch";
 import { favouriteNames } from "../data/favouriteNames";
 
 const DisplayNames = ({ data }) => {
   const [babyData, setBabyData] = useState(data);
-
-  // onChange event for the search bar which handles hiding and showing the baby cards
-  const handleOnChange = function (event) {
-    const babyCards = document.querySelectorAll("#baby-cards li"); // get every li child of the container element
-    const searchValue = event.target.value.toLowerCase();
-    // hides the cards based on the search bars value
-    babyCards.forEach((card) =>
-      card.innerText.toLowerCase().includes(searchValue)
-        ? (card.style = "")
-        : (card.style = "display: none")
-    );
-  };
+  const [favouriteNamesData, SetFavouriteNamesData] = useState(favouriteNames);
 
   // function for favoriting baby names
-  const handleOnClick = function (event) {
+  const favouriteName = function (event) {
     const clickedCardID = parseInt(event.target.id); // id is a string, we need int
-    const fountIndex = babyData.findIndex((baby) => clickedCardID === baby.id);
+    const returnedElement = babyData.filter(
+      (baby) => clickedCardID === baby.id
+    )[0]; // not sure why but this won't work without that [0] specifier
 
-    data.splice(fountIndex, 1);
+    setBabyData(
+      (babyData) =>
+        (babyData = babyData.filter((baby) => baby.id !== returnedElement.id))
+    );
 
-    // favouriteNames.push(fountObject);
-    console.log(fountIndex);
+    SetFavouriteNamesData((favouriteNamesData) => [
+      ...favouriteNamesData,
+      returnedElement,
+    ]); // spread the old data and add in the clicked element after that spread data
   };
 
   return (
     <div id="names-container">
-      <div id="favourite-names">
-        {favouriteNames.map((baby) => (
-          <BabyName key={baby.id} baby={baby} />
-        ))}
+      <div className={"favourite-names"}>
+        <h2 className={"favourite-names-header"}>Your Favourite Names</h2>
+        <ul id="favourite-names">
+          {favouriteNamesData.map((baby) => (
+            <BabyName key={baby.id} baby={baby} />
+          ))}
+        </ul>
       </div>
-      <BabySearch changeEvent={handleOnChange} />
       <ul id="baby-cards">
         {/* sorts the data based on the babies name */}
         {babyData
           .sort((one, two) => (one.name > two.name ? 1 : -1))
           .map((baby) => (
-            <BabyName key={baby.id} baby={baby} onClickEvent={handleOnClick} />
+            <BabyName key={baby.id} baby={baby} onClickEvent={favouriteName} />
           ))}
       </ul>
     </div>

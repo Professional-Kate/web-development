@@ -70,3 +70,14 @@ header {
 .baby-pink {
   background-color: hsl(353, 76%, 92%);
 }
+
+.favourite-names {
+  margin: 30px;
+  padding: 5px;
+  border: 2px black solid;
+}
+
+.favourite-names-header {
+  font-size: 2rem;
+  font-weight: normal;
+}
