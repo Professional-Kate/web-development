@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap");
+
+/* ----- WHOLE PAGE ----- */
+:root {
+  /* variables in the root */
+  --highlight-font: "Bebas Neue", Arial;
+  --normal-font: "Roboto", Arial;
+
+  /* normal font family for everything */
+  font-family: var(--normal-font);
+  text-align: center;
+}
+
+header {
+  /* align center using flex */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+  background-color: hsl(0, 0%, 35%); /* nicer gray to distinguish the header */
+}
+
+/* ----- STYLE ----- */
+
+.card {
+  background: red;
+  border-radius: 20px;
+}
+
+.text-white {
+  color: white;
+}
+
+.text-black {
+  color: black;
+}
+
+/* ----- INDIVIDUAL STYLES ----- */
+
+.main-header {
+  font-size: 2rem;
+}
+
+/* baby name list items */
+
+.baby-search-container {
+  margin-top: 1em; /* moves the element down */
+}
+
+.baby-search-container input {
+  padding: 0.5em; /* expands the text area */
+  margin-left: 1em; /* moves the label to the left a bit */
+}
+
+.baby-list-item {
+  padding: 1em;
+  margin: 1em;
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+
+.baby-list-item:hover {
+  opacity: 0.7;
+}
+
+.baby-blue {
+  background-color: hsl(192, 70%, 78%);
+}
+
+.baby-pink {
+  background-color: hsl(353, 76%, 92%);
+}
