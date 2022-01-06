@@ -1,5 +1,7 @@
+import React, { useState } from "react";
 import BabyName from "./BabyName.js";
 import BabySearch from "./BabySearch.js";
+import { favouriteNames } from "../data/favouriteNames.js";
 
 var DisplayNames = function DisplayNames(_ref) {
   var data = _ref.data;
@@ -14,9 +16,29 @@ var DisplayNames = function DisplayNames(_ref) {
     });
   };
 
+  // function for favoriting baby names
+  var handleOnClick = function handleOnClick(event) {
+    var clickedCardID = parseInt(event.target.id); // id is a string, we need int
+    var fountIndex = data.findIndex(function (baby) {
+      return clickedCardID === baby.id;
+    });
+
+    data.splice(fountIndex, 1);
+
+    // favouriteNames.push(fountObject);
+    console.log(fountIndex);
+  };
+
   return React.createElement(
     "div",
-    { id: "all-names" },
+    { id: "names-container" },
+    React.createElement(
+      "div",
+      { id: "favourite-names" },
+      favouriteNames.map(function (baby) {
+        return React.createElement(BabyName, { key: baby.id, baby: baby });
+      })
+    ),
     React.createElement(BabySearch, { changeEvent: handleOnChange }),
     React.createElement(
       "ul",
@@ -24,7 +46,7 @@ var DisplayNames = function DisplayNames(_ref) {
       data.sort(function (one, two) {
         return one.name > two.name ? 1 : -1;
       }).map(function (baby) {
-        return React.createElement(BabyName, { key: baby.id, baby: baby });
+        return React.createElement(BabyName, { key: baby.id, baby: baby, onClickEvent: handleOnClick });
       })
     )
   );

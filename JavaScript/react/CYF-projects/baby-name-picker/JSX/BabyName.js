@@ -1,7 +1,8 @@
-const BabyName = ({ baby }) => {
+const BabyName = ({ baby, onClickEvent }) => {
   return (
     <li
-      id={baby.id + "-" + baby.name}
+      onClick={onClickEvent}
+      id={baby.id}
       className={`baby-list-item card text-black ${
         baby.sex === "m" ? "baby-blue" : "baby-pink"
       }`}
