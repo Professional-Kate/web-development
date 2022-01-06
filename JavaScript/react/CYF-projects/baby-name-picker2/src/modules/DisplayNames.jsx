@@ -1,10 +1,12 @@
 import { useState } from "react";
 import BabyName from "./BabyNames";
 import { favouriteNames } from "../data/favouriteNames";
+import GenderSort from "./GenderSort";
 
 const DisplayNames = ({ data }) => {
   const [babyData, setBabyData] = useState(data);
   const [favouriteNamesData, SetFavouriteNamesData] = useState(favouriteNames);
+  const [genderToHide, setGenderToHide] = useState("none");
 
   // function for favoriting baby names
   const favouriteName = function (event) {
@@ -24,8 +26,13 @@ const DisplayNames = ({ data }) => {
     ]); // spread the old data and add in the clicked element after that spread data
   };
 
+  const sortNamesOnGender = (event) => {
+    setGenderToHide(event.target.value);
+  };
+
   return (
     <div id="names-container">
+      <GenderSort handleOnChange={sortNamesOnGender} />
       <div className={"favourite-names"}>
         <h2 className={"favourite-names-header"}>Your Favourite Names</h2>
         <ul id="favourite-names">
@@ -39,7 +46,14 @@ const DisplayNames = ({ data }) => {
         {babyData
           .sort((one, two) => (one.name > two.name ? 1 : -1))
           .map((baby) => (
-            <BabyName key={baby.id} baby={baby} onClickEvent={favouriteName} />
+            <BabyName
+              key={baby.id}
+              baby={baby}
+              onClickEvent={favouriteName}
+              shouldHide={
+                genderToHide === "both" ? false : baby.sex === genderToHide
+              }
+            />
           ))}
       </ul>
     </div>
