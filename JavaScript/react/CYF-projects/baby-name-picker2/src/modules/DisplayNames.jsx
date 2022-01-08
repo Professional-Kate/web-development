@@ -6,7 +6,7 @@ import GenderSort from "./GenderSort";
 const DisplayNames = ({ data }) => {
   const [babyData, setBabyData] = useState(data);
   const [favouriteNamesData, SetFavouriteNamesData] = useState(favouriteNames);
-  const [genderToHide, setGenderToHide] = useState("none");
+  const [genderToHide, setGenderToHide] = useState("both");
 
   // function for favoriting baby names
   const favouriteName = function (event) {
@@ -51,7 +51,7 @@ const DisplayNames = ({ data }) => {
               baby={baby}
               onClickEvent={favouriteName}
               shouldHide={
-                genderToHide === "both" ? false : baby.sex === genderToHide
+                genderToHide === "both" ? false : baby.sex !== genderToHide
               }
             />
           ))}
